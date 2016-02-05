@@ -12,7 +12,7 @@ public class Comment {
     private Long commentId;
 
     private Long caseId;
-    private String comment;
+    private String commentText;
 
     private Long createdBy;
     private Long modifiedBy;

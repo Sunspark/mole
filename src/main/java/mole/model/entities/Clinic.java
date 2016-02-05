@@ -13,7 +13,7 @@ public class Clinic {
     private Long clinicId;
 
     private Long clinicLocationId;
-    private OffsetDateTime date;
+    private OffsetDateTime clinicDate;
 
     private Long createdBy;
     private Long modifiedBy;

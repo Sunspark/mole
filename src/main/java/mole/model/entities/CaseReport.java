@@ -13,6 +13,7 @@ public class CaseReport {
     private Long caseReportId;
 
     private Long reportId;
+    private Long caseId;
 
     private Long createdBy;
     private Long modifiedBy;
