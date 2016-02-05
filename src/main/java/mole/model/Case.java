@@ -16,8 +16,8 @@ public class Case {
         createdBy,
         modifiedBy;
     private String agencyRefCode;
-    private Date createdDate,
-        modifiedDate;
+    private Date created,
+        modified;
     private boolean deleted = false;
 
     protected Case() {}  // non-parameter constructor for the magic stuff
@@ -46,12 +46,12 @@ public class Case {
         return agencyRefCode;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreated() {
+        return created;
     }
 
-    public Date getModifiedDate() {
-        return modifiedDate;
+    public Date getModified() {
+        return modified;
     }
 
     public boolean isDeleted() {

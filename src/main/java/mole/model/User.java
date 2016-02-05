@@ -13,7 +13,7 @@ public class User {
     private long userId;
     private long power, createdBy, modifiedBy;
     private String email, firstName, lastName, password;
-    private Date createdDate, modifiedDate;
+    private Date created, modified;
 
     protected User() {}  // non-parameter constructor for the magic stuff
 
@@ -55,12 +55,12 @@ public class User {
         return password;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreated() {
+        return created;
     }
 
-    public Date getModifiedDate() {
-        return modifiedDate;
+    public Date getModified() {
+        return modified;
     }
 
     public String getFullName() {
