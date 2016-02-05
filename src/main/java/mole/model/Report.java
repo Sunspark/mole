@@ -13,5 +13,6 @@ public class Report {
     private long reportId;
 
     private long reportTypeId, userId;
+    private String filepath;
     private Date completeDate, dueDate, sentDate;
 }
