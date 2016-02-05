@@ -1,4 +1,4 @@
-package mole.model;
+package mole.model.entities;
 
 
 import javax.persistence.Entity;
@@ -7,18 +7,17 @@ import javax.persistence.Id;
 import java.time.OffsetDateTime;
 
 @Entity
-public class Agency {
+public class ReportType {
     @Id
     @GeneratedValue
-    private long agencyId;
+    private Long reportTypeId;
 
-    private String name;
+    private String code;
+    private String longName;
 
-    private long createdBy;
-    private long modifiedBy;
+    private Long createdBy;
+    private Long modifiedBy;
     private OffsetDateTime created;
     private OffsetDateTime modified;
-    private boolean deleted = false;
-
+    private Boolean deleted = false;
 }
-

@@ -1,4 +1,4 @@
-package mole.model;
+package mole.model.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,17 +9,17 @@ import java.time.OffsetDateTime;
 public class Case {
     @Id
     @GeneratedValue
-    private long caseId;
+    private Long caseId;
 
-    private long agencyId;
-    private long claimantId;
+    private Long agencyId;
+    private Long claimantId;
     private String agencyRefCode;
 
-    private long createdBy;
-    private long modifiedBy;
+    private Long createdBy;
+    private Long modifiedBy;
     private OffsetDateTime created;
     private OffsetDateTime modified;
-    private boolean deleted = false;
+    private Boolean deleted = false;
 
     protected Case() {}  // non-parameter constructor for the magic stuff
 

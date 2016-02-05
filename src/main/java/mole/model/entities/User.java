@@ -1,5 +1,6 @@
-package mole.model;
+package mole.model.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,18 +11,19 @@ public class User {
 
     @Id
     @GeneratedValue
-    private long userId;
-    private long power;
+    private Long userId;
+
+    private Long power;
     private String email;
     private String firstName;
     private String lastName;
     private String password;
 
-    private long createdBy;
-    private long modifiedBy;
+    private Long createdBy;
+    private Long modifiedBy;
     private OffsetDateTime created;
     private OffsetDateTime modified;
-    private boolean deleted = false;
+    private Boolean deleted = false;
 
     protected User() {}  // non-parameter constructor for the magic stuff
 
