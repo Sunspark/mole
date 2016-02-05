@@ -4,6 +4,7 @@ package mole.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.OffsetDateTime;
 
 @Entity
 public class RecordStatus {
@@ -11,6 +12,12 @@ public class RecordStatus {
     @GeneratedValue
     private long recordStatusId;
 
-    private String code, longName;
+    private String code;
+    private String longName;
 
+    private long createdBy;
+    private long modifiedBy;
+    private OffsetDateTime created;
+    private OffsetDateTime modified;
+    private boolean deleted = false;
 }

@@ -3,7 +3,7 @@ package mole.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 @Entity
 public class User {
@@ -11,9 +11,17 @@ public class User {
     @Id
     @GeneratedValue
     private long userId;
-    private long power, createdBy, modifiedBy;
-    private String email, firstName, lastName, password;
-    private Date created, modified;
+    private long power;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String password;
+
+    private long createdBy;
+    private long modifiedBy;
+    private OffsetDateTime created;
+    private OffsetDateTime modified;
+    private boolean deleted = false;
 
     protected User() {}  // non-parameter constructor for the magic stuff
 
@@ -43,6 +51,10 @@ public class User {
         return power;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public long getCreatedBy() {
         return createdBy;
     }
@@ -51,16 +63,16 @@ public class User {
         return modifiedBy;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public Date getCreated() {
+    public OffsetDateTime getCreated() {
         return created;
     }
 
-    public Date getModified() {
+    public OffsetDateTime getModified() {
         return modified;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
     }
 
     public String getFullName() {

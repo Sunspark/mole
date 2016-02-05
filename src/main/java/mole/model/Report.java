@@ -4,7 +4,7 @@ package mole.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 @Entity
 public class Report {
@@ -12,7 +12,16 @@ public class Report {
     @GeneratedValue
     private long reportId;
 
-    private long reportTypeId, userId;
+    private long reportTypeId;
+    private long userId;
     private String filepath;
-    private Date completeDate, dueDate, sentDate;
+    private OffsetDateTime completeDate;
+    private OffsetDateTime dueDate;
+    private OffsetDateTime sentDate;
+
+    private long createdBy;
+    private long modifiedBy;
+    private OffsetDateTime created;
+    private OffsetDateTime modified;
+    private boolean deleted = false;
 }

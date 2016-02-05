@@ -3,7 +3,7 @@ package mole.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 @Entity
 public class Case {
@@ -11,13 +11,14 @@ public class Case {
     @GeneratedValue
     private long caseId;
 
-    private long agencyId,
-        claimantId,
-        createdBy,
-        modifiedBy;
+    private long agencyId;
+    private long claimantId;
     private String agencyRefCode;
-    private Date created,
-        modified;
+
+    private long createdBy;
+    private long modifiedBy;
+    private OffsetDateTime created;
+    private OffsetDateTime modified;
     private boolean deleted = false;
 
     protected Case() {}  // non-parameter constructor for the magic stuff
@@ -34,6 +35,10 @@ public class Case {
         return claimantId;
     }
 
+    public String getAgencyRefCode() {
+        return agencyRefCode;
+    }
+
     public long getCreatedBy() {
         return createdBy;
     }
@@ -42,15 +47,11 @@ public class Case {
         return modifiedBy;
     }
 
-    public String getAgencyRefCode() {
-        return agencyRefCode;
-    }
-
-    public Date getCreated() {
+    public OffsetDateTime getCreated() {
         return created;
     }
 
-    public Date getModified() {
+    public OffsetDateTime getModified() {
         return modified;
     }
 

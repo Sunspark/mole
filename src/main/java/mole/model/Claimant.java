@@ -4,7 +4,7 @@ package mole.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 @Entity
 public class Claimant {
@@ -12,6 +12,14 @@ public class Claimant {
     @GeneratedValue
     private long claimantId;
 
-    private String firstName, lastName;
-    private Date dob, doa;
+    private String firstName;
+    private String lastName;
+    private OffsetDateTime dob;
+    private OffsetDateTime doa;
+
+    private long createdBy;
+    private long modifiedBy;
+    private OffsetDateTime created;
+    private OffsetDateTime modified;
+    private boolean deleted = false;
 }
