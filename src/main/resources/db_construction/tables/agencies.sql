@@ -1,6 +1,5 @@
 create table mole.agencies (
   agency_id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY
-  , case_id INTEGER
   , name VARCHAR2(100)
 
   , created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
