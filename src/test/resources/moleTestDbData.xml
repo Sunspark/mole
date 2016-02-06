@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-    <USER first_name="Jack" last_name="Bauer" />
-    <USER first_name="Chloe" last_name="O'Brian" />
-    <USER first_name="Kim" last_name="Bauer" />
+    <USER first_name="Jack" last_name="Bauer" email="jack@bauer.com" password="68dbb0cbff9e41dd915f356e341c009cd3d11275f601bd7ce28fbab9b43e248d" power="9" created_by="101" modified_by="101" />
+    <USER first_name="Chloe" last_name="O'Brian" email="cob@help.com" password="346ef202e95105208b72965307219915c69c0bd98a49f955b87bfb417ad296ee" power="0" created_by="101" modified_by="101" />
+    <USER first_name="Kim" last_name="Bauer" email="kim@bauer.com" password="4b43c952f985e97029eeab63ac40af7b4d2cec3056969117eeb711327031f62f" power="2" created_by="101" modified_by="101" />
+    <USER first_name="Chloe" last_name="Whassachops" email="cwhcps@nope.com" password="22d77014f86a7beb8fb371d71f8236aa625db04dce27f357452e96b91627a571" power="4" created_by="101" modified_by="101" />
 </dataset>
+

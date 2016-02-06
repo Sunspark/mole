@@ -3,7 +3,7 @@ create table mole.users (
   , first_name VARCHAR(50)
   , last_name VARCHAR(50)
   , email VARCHAR(200)
-  , password CHAR(40)
+  , password CHAR(64)
   , power TINYINT -- between 0 and 9
   , created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   , created_by INTEGER
