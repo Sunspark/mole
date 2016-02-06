@@ -12,6 +12,7 @@ public class Report {
     @GeneratedValue
     private Long reportId;
 
+    private Long caseId;
     private Long reportTypeId;
     private Long userId;
     private String filepath;

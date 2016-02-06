@@ -1,5 +1,6 @@
 create table mole.reports (
   report_id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY
+  , case_id INTEGER
   , report_type_id INTEGER
   , complete_date TIMESTAMP
   , user_id INTEGER
