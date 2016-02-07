@@ -4,7 +4,7 @@
     <USER first_name="Chloe" last_name="O'Brian" email="cob@help.com" password="346ef202e95105208b72965307219915c69c0bd98a49f955b87bfb417ad296ee" power="0" created_by="101" modified_by="101" />
     <USER first_name="Kim" last_name="Bauer" email="kim@bauer.com" password="4b43c952f985e97029eeab63ac40af7b4d2cec3056969117eeb711327031f62f" power="2" created_by="101" modified_by="101" />
     <USER first_name="Chloe" last_name="Whassachops" email="cwhcps@nope.com" password="22d77014f86a7beb8fb371d71f8236aa625db04dce27f357452e96b91627a571" power="4" created_by="101" modified_by="101" />
-
+<!--
     <AGENCY name="spring" created_by="101" modified_by="101" />
     <AGENCY name="pantone" created_by="101" modified_by="101" />
 
@@ -48,23 +48,23 @@
     <CLINIC_SLOT_OUTCOME code="NOSW" long_name="Claimant did not attend" created_by="101" modified_by="101" />
     <CLINIC_SLOT_OUTCOME code="CANC" long_name="Slot was cancelled" created_by="101" modified_by="101" />
 
-    <REPORT case_id="1" report_type_id="1" complete_date="" user_id="102" due_date="" sent_date="" filepath="" created_by="101" modified_by="101" />
-    <REPORT case_id="2" report_type_id="1" complete_date="" user_id="103" due_date="" sent_date="" filepath="" created_by="101" modified_by="101" />
-    <REPORT case_id="2" report_type_id="2" complete_date="" user_id="103" due_date="" sent_date="" filepath="" created_by="101" modified_by="101" />
-    <REPORT case_id="4" report_type_id="1" complete_date="" user_id="104" due_date="" sent_date="" filepath="" created_by="101" modified_by="101" />
-    <REPORT case_id="4" report_type_id="3" complete_date="" user_id="104" due_date="" sent_date="" filepath="" created_by="101" modified_by="101" />
+    <REPORT case_id="1" report_type_id="1" user_id="102" due_date="2016-03-20" created_by="101" modified_by="101" />
+    <REPORT case_id="2" report_type_id="1" complete_date="2016-03-15" user_id="103" due_date="2016-03-20" sent_date="2016-03-15" filepath="/path/to/file" created_by="101" modified_by="101" />
+    <REPORT case_id="2" report_type_id="2" user_id="103" due_date="2016-03-25" created_by="101" modified_by="101" />
+    <REPORT case_id="4" report_type_id="1" complete_date="2016-03-15" user_id="104" due_date="2016-03-20" sent_date="2016-03-15" filepath="/path/to/file" created_by="101" modified_by="101" />
+    <REPORT case_id="4" report_type_id="3" complete_date="2016-03-15" user_id="104" due_date="2016-03-20" sent_date="2016-03-15" filepath="/path/to/file" created_by="101" modified_by="101" />
 
     <REPORT_TYPE code="MAIN" long_name="Main Report" created_by="101" modified_by="101" />
     <REPORT_TYPE code="ADDM" long_name="Addendum" created_by="101" modified_by="101" />
     <REPORT_TYPE code="PT35" long_name="Part 35" created_by="101" modified_by="101" />
 
-    <CASE_RECORD case_id="3" record_type_id="1" record_status_id="1" filepath="" created_by="101" modified_by="101" />
+    <CASE_RECORD case_id="3" record_type_id="1" record_status_id="1" created_by="101" modified_by="101" />
     <CASE_RECORD case_id="2" record_type_id="1" record_status_id="3" filepath="/path/to/file" created_by="101" modified_by="101" />
     <CASE_RECORD case_id="1" record_type_id="1" record_status_id="3" filepath="/path/to/file" created_by="101" modified_by="101" />
     <CASE_RECORD case_id="4" record_type_id="1" record_status_id="3" filepath="/path/to/file" created_by="101" modified_by="101" />
     <CASE_RECORD case_id="2" record_type_id="2" record_status_id="2" filepath="/path/to/file" created_by="101" modified_by="101" />
-    <CASE_RECORD case_id="2" record_type_id="3" record_status_id="1" filepath="" created_by="101" modified_by="101" />
-    <CASE_RECORD case_id="2" record_type_id="4" record_status_id="1" filepath="" created_by="101" modified_by="101" />
+    <CASE_RECORD case_id="2" record_type_id="3" record_status_id="1" created_by="101" modified_by="101" />
+    <CASE_RECORD case_id="2" record_type_id="4" record_status_id="1" created_by="101" modified_by="101" />
 
     <RECORD_TYPE code="QTNR" long_name="Questionnaire" created_by="101" modified_by="101" />
     <RECORD_TYPE code="GPRD" long_name="GP records" created_by="101" modified_by="101" />
@@ -74,6 +74,6 @@
     <RECORD_STATUS code="WAIT" long_name="Still waiting for this record" created_by="101" modified_by="101" />
     <RECORD_STATUS code="PART" long_name="There is more to come" created_by="101" modified_by="101" />
     <RECORD_STATUS code="GOOD" long_name="Records have been received" created_by="101" modified_by="101" />
-
+-->
 </dataset>
 
