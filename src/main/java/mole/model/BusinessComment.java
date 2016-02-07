@@ -1,4 +1,4 @@
-package mole.model.businessEntities;
+package mole.model;
 
 /**
  * Created by wlist on 05/02/2016.

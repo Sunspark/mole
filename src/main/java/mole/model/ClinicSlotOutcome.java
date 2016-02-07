@@ -1,4 +1,4 @@
-package mole.model.entities;
+package mole.model;
 
 
 import javax.persistence.Entity;
@@ -7,12 +7,13 @@ import javax.persistence.Id;
 import java.time.OffsetDateTime;
 
 @Entity
-public class Agency {
+public class ClinicSlotOutcome {
     @Id
     @GeneratedValue
-    private Long agencyId;
+    private Long clinicSlotOutcomeId;
 
-    private String name;
+    private String code;
+    private String longName;
 
     private Long createdBy;
     private Long modifiedBy;

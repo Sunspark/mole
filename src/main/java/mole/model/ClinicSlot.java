@@ -1,19 +1,23 @@
-package mole.model.entities;
+package mole.model;
 
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.OffsetDateTime;
+import java.util.Date;
 
 @Entity
-public class Clinic {
+public class ClinicSlot {
     @Id
     @GeneratedValue
-    private Long clinicId;
+    private Long clinicSlotId;
 
-    private Long clinicLocationId;
-    private OffsetDateTime clinicDate;
+    private Long clinicId;
+    private Long agencyId;
+    private Long claimantId;
+    private Long clinicSlotOutcomeId;
+    private OffsetDateTime datetime;
 
     private Long createdBy;
     private Long modifiedBy;

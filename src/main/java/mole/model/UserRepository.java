@@ -1,8 +1,7 @@
-package mole.model.repositories;
+package mole.model;
 
 import java.util.List;
 
-import mole.model.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {

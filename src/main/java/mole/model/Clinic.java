@@ -1,4 +1,4 @@
-package mole.model.entities;
+package mole.model;
 
 
 import javax.persistence.Entity;
@@ -7,18 +7,13 @@ import javax.persistence.Id;
 import java.time.OffsetDateTime;
 
 @Entity
-public class Report {
+public class Clinic {
     @Id
     @GeneratedValue
-    private Long reportId;
+    private Long clinicId;
 
-    private Long caseId;
-    private Long reportTypeId;
-    private Long userId;
-    private String filepath;
-    private OffsetDateTime completeDate;
-    private OffsetDateTime dueDate;
-    private OffsetDateTime sentDate;
+    private Long clinicLocationId;
+    private OffsetDateTime clinicDate;
 
     private Long createdBy;
     private Long modifiedBy;

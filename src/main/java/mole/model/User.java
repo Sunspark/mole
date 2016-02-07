@@ -1,4 +1,4 @@
-package mole.model.entities;
+package mole.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,5 @@
-package mole.model.entities;
+package mole.model;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,13 +7,18 @@ import javax.persistence.Id;
 import java.time.OffsetDateTime;
 
 @Entity
-public class Comment {
+public class Report {
     @Id
     @GeneratedValue
-    private Long commentId;
+    private Long reportId;
 
     private Long caseId;
-    private String commentText;
+    private Long reportTypeId;
+    private Long userId;
+    private String filepath;
+    private OffsetDateTime completeDate;
+    private OffsetDateTime dueDate;
+    private OffsetDateTime sentDate;
 
     private Long createdBy;
     private Long modifiedBy;
