@@ -1,6 +1,6 @@
 create table mole.clinics (
   clinic_id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY
-  , clinic_date TIMESTAMP
+  , clinic_date DATE
   , clinic_location_id INTEGER
 
   , created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
