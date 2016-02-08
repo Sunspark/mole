@@ -1,10 +1,14 @@
 package mole;
 
+import mole.model.User;
+import mole.model.UserRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class Application {
@@ -14,7 +18,8 @@ public class Application {
     }
 /*
     @Bean
-    public CommandLineRunner demo(UserRepository repository) {
+    public CommandLineRunner demo(
+            UserRepository repository) {
         return (args) -> {
             // save a couple of customers
             repository.save(new User("Jack", "Bauer"));
@@ -47,5 +52,5 @@ public class Application {
             log.info("");
         };
     }
-    */
+*/
 }
