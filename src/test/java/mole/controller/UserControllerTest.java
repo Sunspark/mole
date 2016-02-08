@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -58,9 +59,11 @@ public class UserControllerTest {
                     get("/Users/1")
                     .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
                 )
+                .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.name").value("Lee"));
+                .andExpect(content().contentType("application/json;charset=UTF-8"))
+                .andExpect(jsonPath("$.lastName").value("Bauer"));
+        // ? do X on fail?
     }
     //countRowsInTable(..): counts the number of rows in the given table
 }

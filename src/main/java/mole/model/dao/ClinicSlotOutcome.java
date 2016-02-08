@@ -1,18 +1,21 @@
-package mole.model;
+package mole.model.dao;
 
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.OffsetDateTime;
 
 @Entity
-public class Agency {
+@Table(name = "clinic_slot_outcomes")
+public class ClinicSlotOutcome {
     @Id
     @GeneratedValue
-    private Long agencyId;
+    private Long clinicSlotOutcomeId;
 
-    private String name;
+    private String code;
+    private String longName;
 
     private Long createdBy;
     private Long modifiedBy;

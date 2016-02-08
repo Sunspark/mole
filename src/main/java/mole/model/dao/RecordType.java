@@ -1,16 +1,18 @@
-package mole.model;
+package mole.model.dao;
 
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.OffsetDateTime;
 
 @Entity
-public class ReportType {
+@Table(name = "record_types")
+public class RecordType {
     @Id
     @GeneratedValue
-    private Long reportTypeId;
+    private Long recordTypeId;
 
     private String code;
     private String longName;

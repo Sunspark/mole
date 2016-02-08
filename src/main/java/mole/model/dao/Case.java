@@ -1,11 +1,13 @@
-package mole.model;
+package mole.model.dao;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.OffsetDateTime;
 
 @Entity
+@Table(name = "cases")
 public class Case {
     @Id
     @GeneratedValue

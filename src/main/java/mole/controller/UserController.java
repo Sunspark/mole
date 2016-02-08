@@ -1,7 +1,7 @@
 package mole.controller;
 
-import mole.model.User;
-import mole.model.UserRepository;
+import mole.model.dao.User;
+import mole.model.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

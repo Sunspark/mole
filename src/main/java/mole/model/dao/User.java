@@ -1,12 +1,10 @@
-package mole.model;
+package mole.model.dao;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -33,7 +31,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -49,7 +47,7 @@ public class User {
         return lastName;
     }
 
-    public long getPower() {
+    public Long getPower() {
         return power;
     }
 
@@ -57,11 +55,11 @@ public class User {
         return password;
     }
 
-    public long getCreatedBy() {
+    public Long getCreatedBy() {
         return createdBy;
     }
 
-    public long getModifiedBy() {
+    public Long getModifiedBy() {
         return modifiedBy;
     }
 
@@ -73,7 +71,7 @@ public class User {
         return modified;
     }
 
-    public boolean isDeleted() {
+    public Boolean isDeleted() {
         return deleted;
     }
 

@@ -1,23 +1,23 @@
-package mole.model;
+package mole.model.dao;
 
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.OffsetDateTime;
-import java.util.Date;
 
 @Entity
-public class ClinicSlot {
+@Table(name = "case_records")
+public class CaseRecord {
     @Id
     @GeneratedValue
-    private Long clinicSlotId;
+    private Long caseRecordId;
 
-    private Long clinicId;
-    private Long agencyId;
-    private Long claimantId;
-    private Long clinicSlotOutcomeId;
-    private OffsetDateTime datetime;
+    private Long caseId;
+    private Long recordTypeId;
+    private Long recordStatusId;
+    private String filepath;
 
     private Long createdBy;
     private Long modifiedBy;
