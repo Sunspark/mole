@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 @Entity
@@ -19,7 +20,7 @@ public class Report {
     private Long userId;
     private String filepath;
     private OffsetDateTime completeDate;
-    private OffsetDateTime dueDate;
+    private LocalDate dueDate;
     private OffsetDateTime sentDate;
 
     private Long createdBy;

@@ -25,15 +25,15 @@ public class Case {
 
     protected Case() {}  // non-parameter constructor for the magic stuff
 
-    public long getCaseId() {
+    public Long getCaseId() {
         return caseId;
     }
 
-    public long getAgencyId() {
+    public Long getAgencyId() {
         return agencyId;
     }
 
-    public long getClaimantId() {
+    public Long getClaimantId() {
         return claimantId;
     }
 
@@ -41,11 +41,11 @@ public class Case {
         return agencyRefCode;
     }
 
-    public long getCreatedBy() {
+    public Long getCreatedBy() {
         return createdBy;
     }
 
-    public long getModifiedBy() {
+    public Long getModifiedBy() {
         return modifiedBy;
     }
 
@@ -57,7 +57,7 @@ public class Case {
         return modified;
     }
 
-    public boolean isDeleted() {
+    public Boolean isDeleted() {
         return deleted;
     }
 }

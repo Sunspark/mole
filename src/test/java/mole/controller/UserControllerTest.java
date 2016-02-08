@@ -37,11 +37,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 @DatabaseSetup("/moleTestDbData.xml")
 @WebAppConfiguration
 public class UserControllerTest {
-    @Test
-    public void testGetUser() {
-
-    }
-
     @Autowired
     private WebApplicationContext wac;
 
@@ -51,6 +46,9 @@ public class UserControllerTest {
     public void setup() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
+
+    @Test
+    public void testNothing() {}
 
     @Test
     public void testGetUserById() throws Exception {
@@ -64,6 +62,7 @@ public class UserControllerTest {
                 .andExpect(content().contentType("application/json;charset=UTF-8"))
                 .andExpect(jsonPath("$.lastName").value("Bauer"));
         // ? do X on fail?
+        //https://thomassundberg.wordpress.com/2012/07/08/performing-an-action-when-a-test-fails/
     }
     //countRowsInTable(..): counts the number of rows in the given table
 }

@@ -20,9 +20,13 @@
     <COMMENTS case_id="3" comment_text="not a furry" created_by="101" modified_by="101" />
     <COMMENTS case_id="3" comment_text="loves fish" created_by="101" modified_by="101" />
     <COMMENTS case_id="4" comment_text="makes a mean curry" created_by="101" modified_by="101" />
-    <COMMENTS case_id="4" comment_text="only ctable via mother-in-law" created_by="101" modified_by="101" />
-
+    <COMMENTS case_id="4" comment_text="only contactable via mother-in-law" created_by="101" modified_by="101" />
+<!--
     <CLAIMANTS first_name="Becky" last_name="Lacrosse" dob="1977-03-01" doa="2015-11-01" created_by="101" modified_by="101" />
+
+    <CLINIC_SLOTS clinic_id="1" datetime="2016-03-01 09:30:00+0:00" agency_id="1" clinic_slot_outcome_id="3" claimant_id="1" created_by="101" modified_by="101" />
+
+
     <CLAIMANTS first_name="Amy-Louise" last_name="Hedgington-Thurrock" dob="1977-04-01" doa="2015-12-23" created_by="101" modified_by="101" />
     <CLAIMANTS first_name="Frank" last_name="Urry" dob="1977-05-01" doa="2015-12-24" created_by="101" modified_by="101" />
     <CLAIMANTS first_name="Helmut" last_name="Scharangle" dob="1977-06-01" doa="2015-12-25" created_by="101" modified_by="101" />
@@ -34,25 +38,25 @@
     <CLINICS clinic_date="2016-03-01" clinic_location_id="2" created_by="101" modified_by="101" />
     <CLINICS clinic_date="2016-04-01" clinic_location_id="1" created_by="101" modified_by="101" />
     <CLINICS clinic_date="2016-04-01" clinic_location_id="2" created_by="101" modified_by="101" />
-<!--db specific string for datetime-->
-    <CLINIC_SLOTS clinic_id="1" datetime="2016-03-01 09:30:00 +00" agency_id="1" clinic_slot_outcome_id="3" claimant_id="1" created_by="101" modified_by="101" />
-    <CLINIC_SLOTS clinic_id="1" datetime="2016-03-01 09:45:00" agency_id="2" clinic_slot_outcome_id="3" claimant_id="3" created_by="101" modified_by="101" />
-    <CLINIC_SLOTS clinic_id="2" datetime="2016-03-01 09:30:00" agency_id="1" clinic_slot_outcome_id="2" claimant_id="2" created_by="101" modified_by="101" />
-    <CLINIC_SLOTS clinic_id="2" datetime="2016-03-01 09:45:00" agency_id="2" clinic_slot_outcome_id="1" claimant_id="4" created_by="101" modified_by="101" />
-    <CLINIC_SLOTS clinic_id="3" datetime="2016-04-01 09:30:00" agency_id="2" clinic_slot_outcome_id="2" claimant_id="3" created_by="101" modified_by="101" />
-    <CLINIC_SLOTS clinic_id="3" datetime="2016-04-01 09:45:00" agency_id="1" clinic_slot_outcome_id="1" claimant_id="1" created_by="101" modified_by="101" />
-    <CLINIC_SLOTS clinic_id="4" datetime="2016-04-01 09:30:00" agency_id="1" clinic_slot_outcome_id="1" claimant_id="2" created_by="101" modified_by="101" />
-    <CLINIC_SLOTS clinic_id="4" datetime="2016-04-01 09:45:00" agency_id="2" clinic_slot_outcome_id="1" claimant_id="4" created_by="101" modified_by="101" />
+
+    <CLINIC_SLOTS clinic_id="1" datetime="2016-03-01 09:30:00+0:00" agency_id="1" clinic_slot_outcome_id="3" claimant_id="1" created_by="101" modified_by="101" />
+    <CLINIC_SLOTS clinic_id="1" datetime="2016-03-01 09:45:00+0:00" agency_id="2" clinic_slot_outcome_id="3" claimant_id="3" created_by="101" modified_by="101" />
+    <CLINIC_SLOTS clinic_id="2" datetime="2016-03-01 09:30:00+0:00" agency_id="1" clinic_slot_outcome_id="2" claimant_id="2" created_by="101" modified_by="101" />
+    <CLINIC_SLOTS clinic_id="2" datetime="2016-03-01 09:45:00+0:00" agency_id="2" clinic_slot_outcome_id="1" claimant_id="4" created_by="101" modified_by="101" />
+    <CLINIC_SLOTS clinic_id="3" datetime="2016-04-01 09:30:00+0:00" agency_id="2" clinic_slot_outcome_id="2" claimant_id="3" created_by="101" modified_by="101" />
+    <CLINIC_SLOTS clinic_id="3" datetime="2016-04-01 09:45:00+0:00" agency_id="1" clinic_slot_outcome_id="1" claimant_id="1" created_by="101" modified_by="101" />
+    <CLINIC_SLOTS clinic_id="4" datetime="2016-04-01 09:30:00+0:00" agency_id="1" clinic_slot_outcome_id="1" claimant_id="2" created_by="101" modified_by="101" />
+    <CLINIC_SLOTS clinic_id="4" datetime="2016-04-01 09:45:00+0:00" agency_id="2" clinic_slot_outcome_id="1" claimant_id="4" created_by="101" modified_by="101" />
 
     <CLINIC_SLOT_OUTCOMES code="GOOD" long_name="Claimant seen" created_by="101" modified_by="101" />
     <CLINIC_SLOT_OUTCOMES code="NOSW" long_name="Claimant did not attend" created_by="101" modified_by="101" />
     <CLINIC_SLOT_OUTCOMES code="CANC" long_name="Slot was cancelled" created_by="101" modified_by="101" />
 
     <REPORTS case_id="1" report_type_id="1" user_id="102" due_date="2016-03-20" created_by="101" modified_by="101" />
-    <REPORTS case_id="2" report_type_id="1" complete_date="2016-03-15" user_id="103" due_date="2016-03-20" sent_date="2016-03-15" filepath="/path/to/file" created_by="101" modified_by="101" />
+    <REPORTS case_id="2" report_type_id="1" complete_date="2016-03-15 09:45:00+5:30" user_id="103" due_date="2016-03-20" sent_date="2016-03-15 09:46:00+5:30" filepath="/path/to/file" created_by="101" modified_by="101" />
     <REPORTS case_id="2" report_type_id="2" user_id="103" due_date="2016-03-25" created_by="101" modified_by="101" />
-    <REPORTS case_id="4" report_type_id="1" complete_date="2016-03-15" user_id="104" due_date="2016-03-20" sent_date="2016-03-15" filepath="/path/to/file" created_by="101" modified_by="101" />
-    <REPORTS case_id="4" report_type_id="3" complete_date="2016-03-15" user_id="104" due_date="2016-03-20" sent_date="2016-03-15" filepath="/path/to/file" created_by="101" modified_by="101" />
+    <REPORTS case_id="4" report_type_id="1" complete_date="2016-03-15 09:50:00+5:30" user_id="104" due_date="2016-03-20" sent_date="2016-03-15 09:51:00+5:30" filepath="/path/to/file" created_by="101" modified_by="101" />
+    <REPORTS case_id="4" report_type_id="3" complete_date="2016-03-15 09:55:00+5:30" user_id="104" due_date="2016-03-20" sent_date="2016-03-15 09:56:00+5:30" filepath="/path/to/file" created_by="101" modified_by="101" />
 
     <REPORT_TYPES code="MAIN" long_name="Main Report" created_by="101" modified_by="101" />
     <REPORT_TYPES code="ADDM" long_name="Addendum" created_by="101" modified_by="101" />
@@ -74,5 +78,6 @@
     <RECORD_STATUSES code="WAIT" long_name="Still waiting for this record" created_by="101" modified_by="101" />
     <RECORD_STATUSES code="PART" long_name="There is more to come" created_by="101" modified_by="101" />
     <RECORD_STATUSES code="GOOD" long_name="Records have been received" created_by="101" modified_by="101" />
+-->
 </dataset>
 

@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "claimants")
@@ -17,7 +18,7 @@ public class Claimant {
 
     private String firstName;
     private String lastName;
-    private LocalDate dob;
+    private Date dob;
     private LocalDate doa;
 
     private Long createdBy;
