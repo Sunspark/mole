@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "record_statues")
+@Table(name = "record_statuses")
 public class RecordStatus {
     @Id
     @GeneratedValue
