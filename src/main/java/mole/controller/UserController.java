@@ -16,11 +16,8 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    // If I want a method that is overloaded, how?
-    // Should I overload?
-    // why doesn't spring boot 'assume' get/set ?
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public User getUserById(@PathVariable("id") long userId) {
+    public User getUserById(@PathVariable("id") Long userId) {
         return userRepository.findOne(userId);
     }
 

@@ -5,8 +5,12 @@ package mole.controller;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 import mole.Application;
+import mole.rules.WebResponseRule;
+import org.dbunit.ext.hsqldb.HsqldbDataTypeFactory;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +28,9 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
+//import org.dbunit.ext.hsqldb.HsqldbDataTypeFactory;
 
+//http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({
@@ -33,6 +39,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
         TransactionalTestExecutionListener.class,
         DbUnitTestExecutionListener.class
 })
+//@DbUnitConfiguration(databaseConnection = "HsqldbDataTypeFactory")
 @SpringApplicationConfiguration(classes = Application.class)
 @DatabaseSetup("/moleTestDbData.xml")
 @WebAppConfiguration
@@ -41,6 +48,10 @@ public class UserControllerTest {
     private WebApplicationContext wac;
 
     private MockMvc mockMvc;
+
+    //https://thomassundberg.wordpress.com/2012/07/08/performing-an-action-when-a-test-fails/
+    //@Rule
+    //public WebResponseRule ruleExample = new WebResponseRule();
 
     @Before
     public void setup() {
@@ -53,16 +64,14 @@ public class UserControllerTest {
     @Test
     public void testGetUserById() throws Exception {
         this.mockMvc
-                .perform(
-                    get("/Users/1")
-                    .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
-                )
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
-                .andExpect(jsonPath("$.lastName").value("Bauer"));
-        // ? do X on fail?
-        //https://thomassundberg.wordpress.com/2012/07/08/performing-an-action-when-a-test-fails/
+            .perform(
+                get("/Users/101")
+                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
+            )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.userId").value(101));
     }
     //countRowsInTable(..): counts the number of rows in the given table
 }
