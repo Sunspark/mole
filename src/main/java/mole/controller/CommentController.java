@@ -1,5 +1,6 @@
 package mole.controller;
 
+import mole.model.business.BusinessComment;
 import mole.model.dao.Comment;
 import mole.model.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,17 @@ public class CommentController {
         Comment result = commentRepository.findOne(commentId);
         return result != null ? ResponseEntity.ok(result) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+    /*
+    @Autowired
+    private BusinessComment businessComment;
+
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    public BusinessComment getCommentById(@PathVariable("id") Long commentId) {
+        return businessComment.getById(commentId);
+    }
+
+
+    */
+
 
 }

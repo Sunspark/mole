@@ -6,6 +6,7 @@ import mole.model.repositories.CommentRepository;
 import mole.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Data
 public class BusinessComment {
     @Autowired
     private CommentRepository commentRepository;
@@ -13,6 +14,13 @@ public class BusinessComment {
     @Autowired
     private UserRepository userRepository;
 
+    private Long commentId;
+    private Long caseId;
 
+    private void load
+
+    public BusinessComment getById (Long commentId) {
+        return this;
+    }
 
 }
