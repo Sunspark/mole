@@ -1,9 +1,7 @@
 package mole.model.dao;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 
 @Entity
@@ -17,47 +15,15 @@ public class Case {
     private Long claimantId;
     private String agencyRefCode;
 
+    @Column(nullable = false)
     private Long createdBy;
+    @Column(nullable = false)
     private Long modifiedBy;
-    private OffsetDateTime created;
-    private OffsetDateTime modified;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp created;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp modified;
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted = false;
 
-    protected Case() {}  // non-parameter constructor for the magic stuff
-
-    public Long getCaseId() {
-        return caseId;
-    }
-
-    public Long getAgencyId() {
-        return agencyId;
-    }
-
-    public Long getClaimantId() {
-        return claimantId;
-    }
-
-    public String getAgencyRefCode() {
-        return agencyRefCode;
-    }
-
-    public Long getCreatedBy() {
-        return createdBy;
-    }
-
-    public Long getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public OffsetDateTime getCreated() {
-        return created;
-    }
-
-    public OffsetDateTime getModified() {
-        return modified;
-    }
-
-    public Boolean isDeleted() {
-        return deleted;
-    }
 }

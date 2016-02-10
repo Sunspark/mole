@@ -1,11 +1,8 @@
 package mole.model.dao;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.time.OffsetDateTime;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "agencies")
@@ -16,10 +13,15 @@ public class Agency {
 
     private String name;
 
+    @Column(nullable = false)
     private Long createdBy;
+    @Column(nullable = false)
     private Long modifiedBy;
-    private OffsetDateTime created;
-    private OffsetDateTime modified;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp created;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp modified;
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted = false;
 
 }

@@ -1,10 +1,9 @@
 package mole.model.dao;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
@@ -19,13 +18,18 @@ public class Report {
     private Long reportTypeId;
     private Long userId;
     private String filepath;
-    private OffsetDateTime completeDate;
-    private LocalDate dueDate;
-    private OffsetDateTime sentDate;
+    private Timestamp completeDate;
+    private Date dueDate;
+    private Timestamp sentDate;
 
+    @Column(nullable = false)
     private Long createdBy;
+    @Column(nullable = false)
     private Long modifiedBy;
-    private OffsetDateTime created;
-    private OffsetDateTime modified;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp created;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp modified;
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted = false;
 }

@@ -1,13 +1,9 @@
 package mole.model.dao;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Date;
+import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "claimants")
@@ -18,12 +14,18 @@ public class Claimant {
 
     private String firstName;
     private String lastName;
-    private Date dob;
-    private LocalDate doa;
 
+    private Date dob;
+    private Date doa;
+
+    @Column(nullable = false)
     private Long createdBy;
+    @Column(nullable = false)
     private Long modifiedBy;
-    private OffsetDateTime created;
-    private OffsetDateTime modified;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp created;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp modified;
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted = false;
 }
