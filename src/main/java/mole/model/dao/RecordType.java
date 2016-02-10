@@ -1,12 +1,15 @@
 package mole.model.dao;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "record_types")
+@Data
 public class RecordType {
     @Id
     @GeneratedValue

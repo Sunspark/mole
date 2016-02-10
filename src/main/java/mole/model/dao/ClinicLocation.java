@@ -1,12 +1,15 @@
 package mole.model.dao;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "clinic_locations")
+@Data
 public class ClinicLocation {
     @Id
     @GeneratedValue

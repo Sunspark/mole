@@ -1,11 +1,14 @@
 package mole.model.dao;
 //https://docs.jboss.org/hibernate/stable/annotations/reference/en/html/entity.html
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "users")
+@Data
 public class User {
 
     @Id
@@ -30,51 +33,6 @@ public class User {
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted = false;
 
-    protected User() {}  // non-parameter constructor for the magic stuff
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Long getPower() {
-        return power;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public Long getCreatedBy() {
-        return createdBy;
-    }
-
-    public Long getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public Timestamp getCreated() {
-        return created;
-    }
-
-    public Timestamp getModified() {
-        return modified;
-    }
-
-    public Boolean isDeleted() {
-        return deleted;
-    }
 
     public String getFullName() {
         return firstName + " " + lastName;

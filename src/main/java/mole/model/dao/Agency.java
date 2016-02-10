@@ -1,11 +1,14 @@
 package mole.model.dao;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "agencies")
+@Data
 public class Agency {
     @Id
     @GeneratedValue

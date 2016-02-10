@@ -1,6 +1,8 @@
 package mole.model.dao;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.OffsetDateTime;
@@ -8,6 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "clinic_slots")
+@Data
 public class ClinicSlot {
     @Id
     @GeneratedValue
