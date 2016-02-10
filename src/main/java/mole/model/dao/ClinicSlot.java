@@ -17,7 +17,7 @@ public class ClinicSlot {
     private Long agencyId;
     private Long claimantId;
     private Long clinicSlotOutcomeId;
-    private Timestamp dateTime;
+    private Timestamp datetime;
 
     @Column(nullable = false)
     private Long createdBy;
