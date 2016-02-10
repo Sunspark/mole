@@ -17,8 +17,6 @@ public class BusinessComment {
     private Long commentId;
     private Long caseId;
 
-    private void load
-
     public BusinessComment getById (Long commentId) {
         return this;
     }
