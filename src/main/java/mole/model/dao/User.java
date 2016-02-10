@@ -1,7 +1,8 @@
 package mole.model.dao;
+//https://docs.jboss.org/hibernate/stable/annotations/reference/en/html/entity.html
 
 import javax.persistence.*;
-import java.time.OffsetDateTime;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "users")
@@ -11,25 +12,25 @@ public class User {
     @GeneratedValue
     private Long userId;
 
+    @Column(nullable = false, columnDefinition = "TINYINT DEFAULT 0")
     private Long power;
     private String email;
     private String firstName;
     private String lastName;
     private String password;
 
+    @Column(nullable = false)
     private Long createdBy;
+    @Column(nullable = false)
     private Long modifiedBy;
-    private OffsetDateTime created;
-    private OffsetDateTime modified;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp created;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp modified;
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted = false;
 
     protected User() {}  // non-parameter constructor for the magic stuff
-
-    // constructor for demo stuff
-    public User(String firstName, String lastName){
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
     public Long getUserId() {
         return userId;
@@ -63,11 +64,11 @@ public class User {
         return modifiedBy;
     }
 
-    public OffsetDateTime getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public OffsetDateTime getModified() {
+    public Timestamp getModified() {
         return modified;
     }
 
@@ -79,12 +80,4 @@ public class User {
         return firstName + " " + lastName;
     }
 
-    // override toString to make it 'pretty'
-    @Override
-    public String toString() {
-        return String.format(
-            "User [id=%d, firstName='%s', lastName='%s']",
-            userId, firstName, lastName
-        );
-    }
 }

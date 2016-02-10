@@ -4,11 +4,11 @@ create table mole.users (
   , last_name VARCHAR(50)
   , email VARCHAR(200)
   , password CHAR(64)
-  , power TINYINT -- between 0 and 9
-  , created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  , created_by INTEGER
-  , modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  , modified_by INTEGER
-  , deleted BOOLEAN DEFAULT FALSE
+  , power TINYINT DEFAULT 0 NOT NULL -- between 0 and 9
+  , created TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+  , created_by INTEGER NOT NULL
+  , modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+  , modified_by INTEGER NOT NULL
+  , deleted BOOLEAN DEFAULT FALSE NOT NULL
 )
 ;
