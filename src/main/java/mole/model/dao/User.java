@@ -1,7 +1,9 @@
 package mole.model.dao;
 //https://docs.jboss.org/hibernate/stable/annotations/reference/en/html/entity.html
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -20,7 +22,7 @@ public class User {
     private String email;
     private String firstName;
     private String lastName;
-    private String password;
+    @Getter(value = AccessLevel.PRIVATE) private String password;
 
     @Column(nullable = false)
     private Long createdBy;
