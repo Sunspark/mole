@@ -17,8 +17,10 @@ public class Comment {
     private Long caseId;
     private String commentText;
 
-    @Column(nullable = false)
-    private Long createdBy;
+    @JoinColumn(name = "created_by", nullable = false)
+    @ManyToOne
+    private User createdBy;
+
     @Column(nullable = false)
     private Long modifiedBy;
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
