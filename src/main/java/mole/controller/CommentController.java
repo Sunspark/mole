@@ -6,10 +6,10 @@ import mole.model.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+import org.springframework.stereotype.Controller;
 
 @RestController
 @RequestMapping("/Comments")
@@ -20,6 +20,10 @@ public class CommentController {
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity<Comment> getCommentById(@PathVariable("id") Long commentId) {
         Comment result = commentRepository.findOne(commentId);
+        result.add(
+            linkTo(methodOn(CommentController.class).getCommentById(commentId))
+            .withSelfRel()
+        );
         return result != null ? ResponseEntity.ok(result) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     /*

@@ -1,6 +1,7 @@
 package mole.model.dao;
 
 import lombok.Data;
+import org.springframework.hateoas.ResourceSupport;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -9,7 +10,7 @@ import java.time.OffsetDateTime;
 @Entity
 @Table(name = "comments")
 @Data
-public class Comment {
+public class Comment extends ResourceSupport {
     @Id
     @GeneratedValue
     private Long commentId;
@@ -17,10 +18,8 @@ public class Comment {
     private Long caseId;
     private String commentText;
 
-    @JoinColumn(name = "created_by", nullable = false)
-    @ManyToOne
-    private User createdBy;
-
+    @Column(nullable = false)
+    private Long createdBy;
     @Column(nullable = false)
     private Long modifiedBy;
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
