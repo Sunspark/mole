@@ -1,6 +1,7 @@
 package mole.model.dao;
 //https://docs.jboss.org/hibernate/stable/annotations/reference/en/html/entity.html
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
@@ -22,7 +23,7 @@ public class User {
     private String email;
     private String firstName;
     private String lastName;
-    @Getter(value = AccessLevel.PRIVATE) private String password;
+    @JsonIgnore private String password;
 
     @Column(nullable = false)
     private Long createdBy;
@@ -33,6 +34,7 @@ public class User {
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp modified;
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    @JsonIgnore
     private Boolean deleted = false;
 
 
