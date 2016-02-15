@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,21 +31,26 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/Search/{field}/{value}")
     public List<User> userSearch(
-        @PathVariable("field") String field,
-        @PathVariable("value") String value
+            @PathVariable("field") String field,
+            @PathVariable("value") String value
     ) {
         List<User> returnList = new ArrayList<User>();
         switch (field) {
             case "lastName":
                 returnList = userRepository.findByLastName(value);
-            break;
+                break;
             case "firstName":
                 returnList = userRepository.findByFirstName(value);
-            break;
+                break;
             // no default, leave a blank array
         }
 
         return returnList;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public Iterable<User> getAll() {
+        return userRepository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/Add")
@@ -57,5 +64,30 @@ public class UserController {
         httpHeaders.setLocation(URI.create(newUserLink.getHref()));
 
         return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/Update")
+    public ResponseEntity<?> update(@RequestBody User input) {
+        //this.validateUser(userId);
+
+        User targetUser = this.userRepository.findOne(input.getUserId());
+
+        targetUser.setFirstName(input.getFirstName());
+        targetUser.setLastName(input.getLastName());
+        targetUser.setEmail(input.getEmail());
+        targetUser.setPower(input.getPower());
+        // TODO password dependent on security.
+        //targetUser.setPassword();
+
+        targetUser.setModified(new Timestamp(new java.util.Date().getTime()));
+        targetUser.setModifiedBy(input.getModifiedBy());
+
+        userRepository.save(targetUser);
+
+        HttpHeaders httpHeaders = new HttpHeaders();
+        Link newUserLink = new UserResource(targetUser).getLink("self");
+        httpHeaders.setLocation(URI.create(newUserLink.getHref()));
+
+        return new ResponseEntity<>(null, httpHeaders, HttpStatus.OK);
     }
 }

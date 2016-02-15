@@ -3,6 +3,8 @@ package mole.controller;
 //https://springtestdbunit.github.io/spring-test-dbunit/
 //http://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html //Section 14.6
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
@@ -28,6 +30,7 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -59,23 +62,13 @@ public class UserControllerTest {
     @Autowired
     private WebApplicationContext wac;
     private MockMvc mockMvc;
-    private HttpMessageConverter mappingJackson2HttpMessageConverter;
+    private ObjectMapper mapper = new ObjectMapper();
 
     private MediaType contentTypeJson = new MediaType(
         MediaType.APPLICATION_JSON.getType(),
         MediaType.APPLICATION_JSON.getSubtype(),
         Charset.forName("utf8")
     );
-
-    @Autowired
-    void setConverters(HttpMessageConverter<?>[] converters) {
-
-        this.mappingJackson2HttpMessageConverter = Arrays.asList(converters).stream().filter(
-                hmc -> hmc instanceof MappingJackson2HttpMessageConverter).findAny().get();
-
-        Assert.assertNotNull("the JSON message converter must not be null",
-                this.mappingJackson2HttpMessageConverter);
-    }
 
     //https://thomassundberg.wordpress.com/2012/07/08/performing-an-action-when-a-test-fails/
     //@Rule
@@ -120,7 +113,7 @@ public class UserControllerTest {
         testUser.setCreatedBy(createdBy);
         testUser.setModifiedBy(modifiedBy);
 
-        String userJson = objectToJson(testUser);
+        String userJson = mapper.writeValueAsString(testUser);
         this.mockMvc
             .perform(
                 post("/Users/Add")
@@ -149,10 +142,78 @@ public class UserControllerTest {
         ;
     }
 
-    protected String objectToJson(Object o) throws IOException {
-        MockHttpOutputMessage mockHttpOutputMessage = new MockHttpOutputMessage();
-        this.mappingJackson2HttpMessageConverter.write(
-                o, MediaType.APPLICATION_JSON, mockHttpOutputMessage);
-        return mockHttpOutputMessage.getBodyAsString();
+    @Test
+    public void testGetAll() throws Exception {
+        this.mockMvc
+            .perform(get("/Users"))
+            .andDo(print())
+            .andExpect(status().isOk())
+        ;
     }
+
+    @Test
+    public void testUpdateUser() throws Exception {
+        String lookupName = "O'Brian";
+        MvcResult userMvcResult = this.mockMvc
+            .perform(
+                get("/Users/Search/lastName/" + lookupName)
+                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
+            )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andReturn()
+        ;
+
+        String userSearchResponse = userMvcResult.getResponse().getContentAsString();
+        JsonNode jsonUserSearchResponse = mapper.readTree(userSearchResponse);
+        JsonNode jsonTargetUser = jsonUserSearchResponse.get(0);
+        User testUser = mapper.readValue(jsonTargetUser.toString(), User.class);
+        int k =1;
+
+        // Set new values
+        Long userId = testUser.getUserId();
+        String firstName = "William";
+        String lastName = "Tell";
+        String email = "updated@test.com";
+        Long power = 2L;
+        Long modifiedBy = 103L;
+
+        testUser.setFirstName(firstName);
+        testUser.setLastName(lastName);
+        testUser.setEmail(email);
+        testUser.setPower(power);
+        testUser.setModifiedBy(modifiedBy);
+
+        String userJson = mapper.writeValueAsString(testUser);
+
+        this.mockMvc
+            .perform(
+                post("/Users/Update")
+                    .contentType(contentTypeJson)
+                    .content(userJson)
+                    .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
+            )
+            .andDo(print())
+            .andExpect(status().isOk())
+        ;
+
+        this.mockMvc
+            .perform(
+                get("/Users/" + userId)
+                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
+            )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.content.userId").value(userId.intValue()))
+            .andExpect(jsonPath("$.content.firstName").value(firstName))
+            .andExpect(jsonPath("$.content.lastName").value(lastName))
+            .andExpect(jsonPath("$.content.email").value(email))
+            .andExpect(jsonPath("$.content.power").value(power.intValue()))
+            .andExpect(jsonPath("$._links.self.href").value("http://localhost/Users/" + userId))
+            .andExpect(jsonPath("$._links.createdByUser.href").value("http://localhost/Users/101"))
+            .andExpect(jsonPath("$._links.modifiedByUser.href").value("http://localhost/Users/" + modifiedBy))
+        ;
+    }
+
 }
