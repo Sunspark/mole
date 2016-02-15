@@ -50,13 +50,18 @@ public class CommentControllerTest {
     @Test
     public void testGetCommentById() throws Exception {
         this.mockMvc
-                .perform(
-                        get("/Comments/1")
-                                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
-                )
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
-                .andExpect(jsonPath("$.commentId").value(1));
+            .perform(
+                get("/Comments/1")
+                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
+            )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.content.commentId").value(1))
+            .andExpect(jsonPath("$._links.self.href").value("http://localhost/Comments/1"))
+            .andExpect(jsonPath("$._links.createdByUser.href").value("http://localhost/Users/101"))
+            .andExpect(jsonPath("$._links.modifiedByUser.href").value("http://localhost/Users/101"))
+//            .andExpect(jsonPath("$._links.case.href").value("http://localhost/Cases/1"))
+        ;
     }
 }

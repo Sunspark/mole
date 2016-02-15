@@ -3,7 +3,10 @@ package mole.controller;
 import mole.model.dao.User;
 import mole.model.repositories.UserRepository;
 
+import mole.model.resource.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,8 +20,8 @@ public class UserController {
     private UserRepository userRepository;
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public User getUserById(@PathVariable("id") Long userId) {
-        return userRepository.findOne(userId);
+    public UserResource getUserById(@PathVariable("id") Long userId) {
+        return new UserResource(this.userRepository.findOne(userId));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/Search/{field}/{value}")
@@ -39,10 +42,36 @@ public class UserController {
 
         return returnList;
     }
-/*
-    @RequestMapping(method = RequestMethod.GET, value = "/Search")
-    public List<User> userSearchByFirstName(@RequestParam(value = "firstName", required = false) String firstName) {
-        return userRepository.findByFirstName(firstName);
+
+    @RequestMapping(method = RequestMethod.POST, value = "/Add")
+    public ResponseEntity<?> add(@RequestBody User input) {
+        //this.validateUser(userId);
+
+        User newUser = new User();
+        newUser.setFirstName(input.getFirstName());
+        newUser.setLastName(input.getLastName());
+        newUser.setCreatedBy(input.getCreatedBy());
+        newUser.setModifiedBy(input.getModifiedBy());
+
+        userRepository.save(newUser);
+
+        int k = 1;
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+
+        /*
+        return accountRepository.findByUsername(userId)
+                .map(account -> {
+                            Bookmark bookmark = bookmarkRepository.
+                            save(new Bookmark(account, input.uri, input.description));
+
+                            HttpHeaders httpHeaders = new HttpHeaders();
+
+                            Link forOneBookmark = new BookmarkResource(bookmark).getLink("self");
+                            httpHeaders.setLocation(URI.create(forOneBookmark.getHref()));
+
+                            return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
+                        }
+                ).get();
+                */
     }
-*/
 }

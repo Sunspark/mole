@@ -34,7 +34,6 @@ public class User {
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp modified;
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
-    @JsonIgnore
     private Boolean deleted = false;
 
 
