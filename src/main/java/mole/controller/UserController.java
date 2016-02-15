@@ -5,10 +5,13 @@ import mole.model.repositories.UserRepository;
 
 import mole.model.resource.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Link;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,31 +50,12 @@ public class UserController {
     public ResponseEntity<?> add(@RequestBody User input) {
         //this.validateUser(userId);
 
-        User newUser = new User();
-        newUser.setFirstName(input.getFirstName());
-        newUser.setLastName(input.getLastName());
-        newUser.setCreatedBy(input.getCreatedBy());
-        newUser.setModifiedBy(input.getModifiedBy());
+        userRepository.save(input);
 
-        userRepository.save(newUser);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        Link newUserLink = new UserResource(input).getLink("self");
+        httpHeaders.setLocation(URI.create(newUserLink.getHref()));
 
-        int k = 1;
-        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
-
-        /*
-        return accountRepository.findByUsername(userId)
-                .map(account -> {
-                            Bookmark bookmark = bookmarkRepository.
-                            save(new Bookmark(account, input.uri, input.description));
-
-                            HttpHeaders httpHeaders = new HttpHeaders();
-
-                            Link forOneBookmark = new BookmarkResource(bookmark).getLink("self");
-                            httpHeaders.setLocation(URI.create(forOneBookmark.getHref()));
-
-                            return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
-                        }
-                ).get();
-                */
+        return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
     }
 }
