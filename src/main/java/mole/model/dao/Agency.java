@@ -2,11 +2,13 @@ package mole.model.dao;
 
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
+@DynamicInsert
 @Table(name = "agencies")
 @Data
 public class Agency {

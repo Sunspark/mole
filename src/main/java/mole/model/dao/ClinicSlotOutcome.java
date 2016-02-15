@@ -2,12 +2,14 @@ package mole.model.dao;
 
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 
 @Entity
+@DynamicInsert
 @Table(name = "clinic_slot_outcomes")
 @Data
 public class ClinicSlotOutcome {

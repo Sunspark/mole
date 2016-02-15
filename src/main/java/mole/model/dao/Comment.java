@@ -2,6 +2,7 @@ package mole.model.dao;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.hateoas.ResourceSupport;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 
 @Entity
+@DynamicInsert
 @Table(name = "comments")
 @Data
 public class Comment extends ResourceSupport {

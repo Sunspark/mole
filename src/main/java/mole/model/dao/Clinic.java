@@ -2,6 +2,7 @@ package mole.model.dao;
 
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 @Entity
+@DynamicInsert
 @Table(name = "clinics")
 @Data
 public class Clinic {
