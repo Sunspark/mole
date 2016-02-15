@@ -25,7 +25,8 @@ public class User {
     private String email;
     private String firstName;
     private String lastName;
-    @JsonIgnore private String password;
+    @JsonIgnore
+    private String password;
 
     @Column(nullable = false)
     private Long createdBy;
@@ -37,10 +38,5 @@ public class User {
     private Timestamp modified;
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted = false;
-
-
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
 
 }
