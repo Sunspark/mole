@@ -61,7 +61,7 @@ public class CommentControllerTest {
             .andExpect(jsonPath("$._links.self.href").value("http://localhost/Comments/1"))
             .andExpect(jsonPath("$._links.createdByUser.href").value("http://localhost/Users/101"))
             .andExpect(jsonPath("$._links.modifiedByUser.href").value("http://localhost/Users/101"))
-//            .andExpect(jsonPath("$._links.case.href").value("http://localhost/Cases/1"))
+            .andExpect(jsonPath("$._links.case.href").value("http://localhost/Cases/1"))
         ;
     }
 }

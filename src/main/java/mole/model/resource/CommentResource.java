@@ -1,5 +1,6 @@
 package mole.model.resource;
 
+import mole.controller.CaseController;
 import mole.controller.CommentController;
 import mole.controller.UserController;
 import mole.model.dao.Comment;
@@ -21,10 +22,9 @@ public class CommentResource extends ResourceSupport {
 
         Long modifiedBy = comment.getModifiedBy();
         this.add(linkTo(methodOn(UserController.class).getUserById(modifiedBy)).withRel("modifiedByUser"));
-/*
+
         Long caseId = comment.getCaseId();
         this.add(linkTo(methodOn(CaseController.class).getCaseById(caseId)).withRel("case"));
-*/
     }
 
     public Comment getContent() {

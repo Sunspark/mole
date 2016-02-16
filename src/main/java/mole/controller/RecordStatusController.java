@@ -22,6 +22,6 @@ public class RecordStatusController {
 
     @RequestMapping(method = RequestMethod.GET)
     public Iterable<RecordStatus> getAll() {
-        return recordStatus.findAll();
+        return recordStatusRepository.findAll();
     }
 }
