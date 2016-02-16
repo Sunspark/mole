@@ -114,7 +114,7 @@ public class UserControllerTest {
         testUser.setModifiedBy(modifiedBy);
 
         String userJson = mapper.writeValueAsString(testUser);
-        this.mockMvc
+        MvcResult userMvcResult = this.mockMvc
             .perform(
                 post("/Users/Add")
                 .contentType(contentTypeJson)
@@ -123,22 +123,25 @@ public class UserControllerTest {
             )
             .andDo(print())
             .andExpect(status().isCreated())
+            .andExpect(redirectedUrlPattern("http://localhost/Users/*"))
+            .andReturn()
         ;
 
-        //int rowCount = countRowsInTable("USERS");
+        String userAddUrl = userMvcResult.getResponse().getRedirectedUrl();
 
         this.mockMvc
             .perform(
-                get("/Users/105")
+                get(userAddUrl)
                 .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
             )
             .andDo(print())
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
-            .andExpect(jsonPath("$.content.userId").value(105))
-            .andExpect(jsonPath("$._links.self.href").value("http://localhost/Users/105"))
-            .andExpect(jsonPath("$._links.createdByUser.href").value("http://localhost/Users/101"))
-            .andExpect(jsonPath("$._links.modifiedByUser.href").value("http://localhost/Users/101"))
+            .andExpect(jsonPath("$.content.firstName").value(firstName))
+            .andExpect(jsonPath("$.content.lastName").value(lastName))
+            .andExpect(jsonPath("$._links.self.href").value(userAddUrl))
+            .andExpect(jsonPath("$._links.createdByUser.href").value("http://localhost/Users/" + createdBy))
+            .andExpect(jsonPath("$._links.modifiedByUser.href").value("http://localhost/Users/" + modifiedBy))
         ;
     }
 
@@ -168,7 +171,6 @@ public class UserControllerTest {
         JsonNode jsonUserSearchResponse = mapper.readTree(userSearchResponse);
         JsonNode jsonTargetUser = jsonUserSearchResponse.get(0);
         User testUser = mapper.readValue(jsonTargetUser.toString(), User.class);
-        int k =1;
 
         // Set new values
         Long userId = testUser.getUserId();
@@ -176,7 +178,7 @@ public class UserControllerTest {
         String lastName = "Tell";
         String email = "updated@test.com";
         Long power = 2L;
-        Long modifiedBy = 103L;
+        Long modifiedBy = 102L;
 
         testUser.setFirstName(firstName);
         testUser.setLastName(lastName);

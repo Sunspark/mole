@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
     <USERS user_id="101" first_name="Jack" last_name="Bauer" email="jack@bauer.com" password="68dbb0cbff9e41dd915f356e341c009cd3d11275f601bd7ce28fbab9b43e248d" power="9" created_by="101" modified_by="101" />
-    <USERS first_name="Chloe" last_name="O'Brian" email="cob@help.com" password="346ef202e95105208b72965307219915c69c0bd98a49f955b87bfb417ad296ee" power="0" created_by="101" modified_by="101" />
+    <USERS user_id="102" first_name="Chloe" last_name="O'Brian" email="cob@help.com" password="346ef202e95105208b72965307219915c69c0bd98a49f955b87bfb417ad296ee" power="0" created_by="101" modified_by="101" />
     <USERS first_name="Kim" last_name="Bauer" email="kim@bauer.com" password="4b43c952f985e97029eeab63ac40af7b4d2cec3056969117eeb711327031f62f" power="2" created_by="101" modified_by="101" />
     <USERS first_name="Chloe" last_name="Whassachops" email="cwhcps@nope.com" password="22d77014f86a7beb8fb371d71f8236aa625db04dce27f357452e96b91627a571" power="4" created_by="101" modified_by="101" />
 
-    <AGENCIES name="spring" created_by="101" modified_by="101" />
+    <AGENCIES agency_id="1" name="spring" created_by="101" modified_by="101" />
     <AGENCIES name="pantone" created_by="101" modified_by="101" />
 
-    <CASES agency_id="1" agency_ref_code="s-0001" claimant_id="1" created_by="101" modified_by="101" />
+    <CASES case_id="1" agency_id="1" agency_ref_code="s-0001" claimant_id="1" created_by="101" modified_by="101" />
     <CASES agency_id="1" agency_ref_code="s-0002" claimant_id="2" created_by="101" modified_by="101" />
     <CASES agency_id="2" agency_ref_code="p-0001" claimant_id="3" created_by="101" modified_by="101" />
     <CASES agency_id="2" agency_ref_code="p-0001" claimant_id="4" created_by="101" modified_by="101" />
 
-    <COMMENTS case_id="1" comment_text="double accident" created_by="101" modified_by="101" />
+    <COMMENTS comment_id="1" case_id="1" comment_text="double accident" created_by="101" modified_by="101" />
     <COMMENTS case_id="1" comment_text="email - feels much better" created_by="101" modified_by="101" />
     <COMMENTS case_id="2" comment_text="whiny customer" created_by="101" modified_by="101" />
     <COMMENTS case_id="2" comment_text="super-special snowflake" created_by="101" modified_by="101" />
@@ -22,20 +22,20 @@
     <COMMENTS case_id="4" comment_text="makes a mean curry" created_by="101" modified_by="101" />
     <COMMENTS case_id="4" comment_text="only contactable via mother-in-law" created_by="101" modified_by="101" />
 
-    <CLAIMANTS first_name="Becky" last_name="Lacrosse" dob="1977-03-01" doa="2015-11-01" created_by="101" modified_by="101" />
+    <CLAIMANTS claimant_id="1" first_name="Becky" last_name="Lacrosse" dob="1977-03-01" doa="2015-11-01" created_by="101" modified_by="101" />
     <CLAIMANTS first_name="Amy-Louise" last_name="Hedgington-Thurrock" dob="1977-04-01" doa="2015-12-23" created_by="101" modified_by="101" />
     <CLAIMANTS first_name="Frank" last_name="Urry" dob="1977-05-01" doa="2015-12-24" created_by="101" modified_by="101" />
     <CLAIMANTS first_name="Helmut" last_name="Scharangle" dob="1977-06-01" doa="2015-12-25" created_by="101" modified_by="101" />
 
-    <CLINIC_LOCATIONS name="Romford" created_by="101" modified_by="101" />
+    <CLINIC_LOCATIONS clinic_location_id="1" name="Romford" created_by="101" modified_by="101" />
     <CLINIC_LOCATIONS name="Harley Street" created_by="101" modified_by="101" />
 
-    <CLINICS clinic_date="2016-03-01" clinic_location_id="1" created_by="101" modified_by="101" />
+    <CLINICS clinic_id="1" clinic_date="2016-03-01" clinic_location_id="1" created_by="101" modified_by="101" />
     <CLINICS clinic_date="2016-03-01" clinic_location_id="2" created_by="101" modified_by="101" />
     <CLINICS clinic_date="2016-04-01" clinic_location_id="1" created_by="101" modified_by="101" />
     <CLINICS clinic_date="2016-04-01" clinic_location_id="2" created_by="101" modified_by="101" />
 
-    <CLINIC_SLOTS clinic_id="1" datetime="2016-03-01 09:30:00" agency_id="1" clinic_slot_outcome_id="3" claimant_id="1" created_by="101" modified_by="101" />
+    <CLINIC_SLOTS clinic_slot_id="1" clinic_id="1" datetime="2016-03-01 09:30:00" agency_id="1" clinic_slot_outcome_id="3" claimant_id="1" created_by="101" modified_by="101" />
     <CLINIC_SLOTS clinic_id="1" datetime="2016-03-01 09:45:00" agency_id="2" clinic_slot_outcome_id="3" claimant_id="3" created_by="101" modified_by="101" />
     <CLINIC_SLOTS clinic_id="2" datetime="2016-03-01 09:30:00" agency_id="1" clinic_slot_outcome_id="2" claimant_id="2" created_by="101" modified_by="101" />
     <CLINIC_SLOTS clinic_id="2" datetime="2016-03-01 09:45:00" agency_id="2" clinic_slot_outcome_id="1" claimant_id="4" created_by="101" modified_by="101" />
@@ -44,21 +44,21 @@
     <CLINIC_SLOTS clinic_id="4" datetime="2016-04-01 09:30:00" agency_id="1" clinic_slot_outcome_id="1" claimant_id="2" created_by="101" modified_by="101" />
     <CLINIC_SLOTS clinic_id="4" datetime="2016-04-01 09:45:00" agency_id="2" clinic_slot_outcome_id="1" claimant_id="4" created_by="101" modified_by="101" />
 
-    <CLINIC_SLOT_OUTCOMES code="GOOD" long_name="Claimant seen" created_by="101" modified_by="101" />
+    <CLINIC_SLOT_OUTCOMES clinic_slot_outcome_id="1" code="GOOD" long_name="Claimant seen" created_by="101" modified_by="101" />
     <CLINIC_SLOT_OUTCOMES code="NOSW" long_name="Claimant did not attend" created_by="101" modified_by="101" />
     <CLINIC_SLOT_OUTCOMES code="CANC" long_name="Slot was cancelled" created_by="101" modified_by="101" />
 
-    <REPORTS case_id="1" report_type_id="1" user_id="102" due_date="2016-03-20" created_by="101" modified_by="101" />
+    <REPORTS report_id="1" case_id="1" report_type_id="1" user_id="102" due_date="2016-03-20" created_by="101" modified_by="101" />
     <REPORTS case_id="2" report_type_id="1" complete_date="2016-03-15 09:45:00" user_id="103" due_date="2016-03-20" sent_date="2016-03-15 09:46:00" filepath="/path/to/file" created_by="101" modified_by="101" />
     <REPORTS case_id="2" report_type_id="2" user_id="103" due_date="2016-03-25" created_by="101" modified_by="101" />
     <REPORTS case_id="4" report_type_id="1" complete_date="2016-03-15 09:50:00" user_id="104" due_date="2016-03-20" sent_date="2016-03-15 09:51:00" filepath="/path/to/file" created_by="101" modified_by="101" />
     <REPORTS case_id="4" report_type_id="3" complete_date="2016-03-15 09:55:00" user_id="104" due_date="2016-03-20" sent_date="2016-03-15 09:56:00" filepath="/path/to/file" created_by="101" modified_by="101" />
 
-    <REPORT_TYPES code="MAIN" long_name="Main Report" created_by="101" modified_by="101" />
+    <REPORT_TYPES report_type_id="1" code="MAIN" long_name="Main Report" created_by="101" modified_by="101" />
     <REPORT_TYPES code="ADDM" long_name="Addendum" created_by="101" modified_by="101" />
     <REPORT_TYPES code="PT35" long_name="Part 35" created_by="101" modified_by="101" />
 
-    <CASE_RECORDS case_id="3" record_type_id="1" record_status_id="1" created_by="101" modified_by="101" />
+    <CASE_RECORDS case_record_id="1" case_id="3" record_type_id="1" record_status_id="1" created_by="101" modified_by="101" />
     <CASE_RECORDS case_id="2" record_type_id="1" record_status_id="3" filepath="/path/to/file" created_by="101" modified_by="101" />
     <CASE_RECORDS case_id="1" record_type_id="1" record_status_id="3" filepath="/path/to/file" created_by="101" modified_by="101" />
     <CASE_RECORDS case_id="4" record_type_id="1" record_status_id="3" filepath="/path/to/file" created_by="101" modified_by="101" />
@@ -66,12 +66,12 @@
     <CASE_RECORDS case_id="2" record_type_id="3" record_status_id="1" created_by="101" modified_by="101" />
     <CASE_RECORDS case_id="2" record_type_id="4" record_status_id="1" created_by="101" modified_by="101" />
 
-    <RECORD_TYPES code="QTNR" long_name="Questionnaire" created_by="101" modified_by="101" />
+    <RECORD_TYPES record_type_id="1" code="QTNR" long_name="Questionnaire" created_by="101" modified_by="101" />
     <RECORD_TYPES code="GPRD" long_name="GP records" created_by="101" modified_by="101" />
     <RECORD_TYPES code="HOSP" long_name="Hospital records" created_by="101" modified_by="101" />
     <RECORD_TYPES code="RADG" long_name="Radiology" created_by="101" modified_by="101" />
 
-    <RECORD_STATUSES code="WAIT" long_name="Still waiting for this record" created_by="101" modified_by="101" />
+    <RECORD_STATUSES record_status_id="1" code="WAIT" long_name="Still waiting for this record" created_by="101" modified_by="101" />
     <RECORD_STATUSES code="PART" long_name="There is more to come" created_by="101" modified_by="101" />
     <RECORD_STATUSES code="GOOD" long_name="Records have been received" created_by="101" modified_by="101" />
 

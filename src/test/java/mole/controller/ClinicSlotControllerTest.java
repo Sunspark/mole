@@ -36,7 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringApplicationConfiguration(classes = Application.class)
 @DatabaseSetup("/moleTestDbData.xml")
 @WebAppConfiguration
-public class CommentControllerTest {
+public class ClinicSlotControllerTest {
     @Autowired
     private WebApplicationContext wac;
 
@@ -48,20 +48,19 @@ public class CommentControllerTest {
     }
 
     @Test
-    public void testGetCommentById() throws Exception {
+    public void testGetClinicSlotById() throws Exception {
         this.mockMvc
-            .perform(
-                get("/Comments/1")
-                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
-            )
-            //.andDo(print())
-            .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
-            .andExpect(jsonPath("$.content.commentId").value(1))
-            .andExpect(jsonPath("$._links.self.href").value("http://localhost/Comments/1"))
-            .andExpect(jsonPath("$._links.createdByUser.href").value("http://localhost/Users/101"))
-            .andExpect(jsonPath("$._links.modifiedByUser.href").value("http://localhost/Users/101"))
-            .andExpect(jsonPath("$._links.case.href").value("http://localhost/Cases/1"))
+                .perform(
+                        get("/ClinicSlots/1")
+                                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
+                )
+                //.andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"))
+                .andExpect(jsonPath("$.content.clinicSlotId").value(1))
+                .andExpect(jsonPath("$._links.self.href").value("http://localhost/ClinicSlots/1"))
+                .andExpect(jsonPath("$._links.createdByUser.href").value("http://localhost/Users/101"))
+                .andExpect(jsonPath("$._links.modifiedByUser.href").value("http://localhost/Users/101"))
         ;
     }
 }
