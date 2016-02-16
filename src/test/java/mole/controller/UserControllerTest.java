@@ -80,9 +80,6 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testNothing() {}
-
-    @Test
     public void testGetUserById() throws Exception {
         this.mockMvc
             .perform(
