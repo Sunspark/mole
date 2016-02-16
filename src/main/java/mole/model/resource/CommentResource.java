@@ -1,6 +1,5 @@
 package mole.model.resource;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import mole.controller.CommentController;
 import mole.controller.UserController;
 import mole.model.dao.Comment;

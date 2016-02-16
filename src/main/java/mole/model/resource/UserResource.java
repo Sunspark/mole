@@ -1,6 +1,5 @@
 package mole.model.resource;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import mole.controller.UserController;
 import mole.model.dao.User;
 import org.springframework.hateoas.ResourceSupport;
