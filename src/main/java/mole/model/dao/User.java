@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 
 @Entity
 @DynamicInsert
-@Table(name = "users")
+@Table(name = "users", schema = "mole")
 @Data
 public class User {
 
