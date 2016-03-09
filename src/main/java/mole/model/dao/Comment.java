@@ -19,6 +19,7 @@ public class Comment extends ResourceSupport {
     private Long commentId;
 
     private Long caseId;
+    @Column(columnDefinition = "CLOB")
     private String commentText;
 
     @Column(nullable = false)
