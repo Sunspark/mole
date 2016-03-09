@@ -1,14 +1,14 @@
 create table mole.claimants (
-  claimant_id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY
+  claimant_id BIGINT GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY
   , first_name VARCHAR(50)
   , last_name VARCHAR(50)
   , dob DATE
   , doa DATE
 
   , created TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-  , created_by INTEGER NOT NULL
+  , created_by BIGINT NOT NULL
   , modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-  , modified_by INTEGER NOT NULL
+  , modified_by BIGINT NOT NULL
   , deleted BOOLEAN DEFAULT FALSE NOT NULL
 )
 ;

@@ -1,15 +1,15 @@
 create table mole.users (
-  user_id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 101) PRIMARY KEY
+  user_id BIGINT GENERATED ALWAYS AS IDENTITY (START WITH 101) PRIMARY KEY
   , first_name VARCHAR(50)
   , last_name VARCHAR(50)
   , email VARCHAR(200)
-  , password CHAR(64)
+  , password VARCHAR(64)
   , power TINYINT DEFAULT 0 NOT NULL -- between 0 and 9
 
   , created TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-  , created_by INTEGER NOT NULL
+  , created_by BIGINT NOT NULL
   , modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-  , modified_by INTEGER NOT NULL
+  , modified_by BIGINT NOT NULL
   , deleted BOOLEAN DEFAULT FALSE NOT NULL
 )
 ;

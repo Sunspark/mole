@@ -1,13 +1,13 @@
 create table mole.cases (
-  case_id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY
-  , agency_id INTEGER
-  , agency_ref_code CHAR(3)
-  , claimant_id INTEGER
+  case_id BIGINT GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY
+  , agency_id BIGINT
+  , agency_ref_code VARCHAR(50)
+  , claimant_id BIGINT
 
   , created TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-  , created_by INTEGER NOT NULL
+  , created_by BIGINT NOT NULL
   , modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-  , modified_by INTEGER NOT NULL
+  , modified_by BIGINT NOT NULL
   , deleted BOOLEAN DEFAULT FALSE NOT NULL
 )
 ;
