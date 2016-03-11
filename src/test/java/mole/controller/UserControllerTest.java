@@ -86,7 +86,7 @@ public class UserControllerTest {
                 get("/Users/101")
                 .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
             )
-            .andDo(print())
+            //.andDo(print())
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$.content.userId").value(101))
@@ -118,25 +118,25 @@ public class UserControllerTest {
                 .content(userJson)
                 .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
             )
-            .andDo(print())
+            //.andDo(print())
             .andExpect(status().isCreated())
             .andExpect(redirectedUrlPattern("http://localhost/Users/*"))
             .andReturn()
         ;
 
-        String userAddUrl = userMvcResult.getResponse().getRedirectedUrl();
+        String addedUrl = userMvcResult.getResponse().getRedirectedUrl();
 
         this.mockMvc
             .perform(
-                get(userAddUrl)
+                get(addedUrl)
                 .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
             )
-            .andDo(print())
+            //.andDo(print())
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$.content.firstName").value(firstName))
             .andExpect(jsonPath("$.content.lastName").value(lastName))
-            .andExpect(jsonPath("$._links.self.href").value(userAddUrl))
+            .andExpect(jsonPath("$._links.self.href").value(addedUrl))
             .andExpect(jsonPath("$._links.createdByUser.href").value("http://localhost/Users/" + createdBy))
             .andExpect(jsonPath("$._links.modifiedByUser.href").value("http://localhost/Users/" + modifiedBy))
         ;
@@ -146,7 +146,7 @@ public class UserControllerTest {
     public void testGetAll() throws Exception {
         this.mockMvc
             .perform(get("/Users"))
-            .andDo(print())
+            //.andDo(print())
             .andExpect(status().isOk())
         ;
     }
@@ -159,7 +159,7 @@ public class UserControllerTest {
                 get("/Users/Search/lastName/" + lookupName)
                 .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
             )
-            .andDo(print())
+            //.andDo(print())
             .andExpect(status().isOk())
             .andReturn()
         ;
@@ -192,7 +192,7 @@ public class UserControllerTest {
                     .content(userJson)
                     .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
             )
-            .andDo(print())
+            //.andDo(print())
             .andExpect(status().isOk())
         ;
 
@@ -201,7 +201,7 @@ public class UserControllerTest {
                 get("/Users/" + userId)
                 .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
             )
-            .andDo(print())
+            //.andDo(print())
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$.content.userId").value(userId.intValue()))

@@ -127,7 +127,7 @@ public class CaseControllerTest {
     public void testUpdateCase() throws Exception {
         MvcResult caseMvcResult = this.mockMvc
             .perform(
-                get("/Cases/1")
+                get("/Cases/Search/agencyRefCode/s-0001")
                     .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
             )
             //.andDo(print())
@@ -137,7 +137,7 @@ public class CaseControllerTest {
 
         String stringSearchResponse = caseMvcResult.getResponse().getContentAsString();
         JsonNode jsonStringSearchResponse = mapper.readTree(stringSearchResponse);
-        JsonNode jsonTarget = jsonStringSearchResponse.get("content");
+        JsonNode jsonTarget = jsonStringSearchResponse.get(0);
         Case testCase = mapper.readValue(jsonTarget.toString(), Case.class);
 
         // Set new values
