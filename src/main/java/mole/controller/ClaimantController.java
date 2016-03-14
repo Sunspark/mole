@@ -39,7 +39,7 @@ public class ClaimantController {
         List<Claimant> returnList = new ArrayList<Claimant>();
         switch (field) {
             case "lastName":
-                returnList = claimantRepository.findByLastName(value);
+                returnList = claimantRepository.findByLastNameLike(value);
                 break;
             // no default, leave a blank array
         }
