@@ -59,13 +59,23 @@ public class CaseControllerTest {
     }
 
     @Test
+    public void testGetAllCases() throws Exception {
+        this.mockMvc
+                .perform(
+                        get("/Cases")
+                                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
+                ).andDo(print())
+        ;
+    }
+
+    @Test
     public void testGetCaseById() throws Exception {
         this.mockMvc
                 .perform(
                         get("/Cases/1")
                                 .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
                 )
-                //.andDo(print())
+                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"))
                 .andExpect(jsonPath("$.content.caseId").value(1))

@@ -4,6 +4,7 @@ import mole.model.dao.Case;
 import mole.model.repositories.CaseRepository;
 import mole.model.resource.CaseResource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,9 @@ public class CaseController {
     private CaseRepository caseRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Iterable<Case> getAll() {
-        return caseRepository.findAll();
+    public List<CaseResource> getAll() {
+        int queryLimit = 20;
+        return convertToResourceList(caseRepository.findAllByOrderByModifiedByDesc(new PageRequest(0, queryLimit)));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
@@ -82,5 +84,14 @@ public class CaseController {
         return new ResponseEntity<>(null, httpHeaders, HttpStatus.OK);
     }
 
+    private List<CaseResource> convertToResourceList(List<Case> incomingList) {
+        List<CaseResource> returnList = new ArrayList<CaseResource>();
+
+        for (Case c : incomingList) {
+            returnList.add(new CaseResource(c));
+        }
+
+        return returnList;
+    }
 
 }

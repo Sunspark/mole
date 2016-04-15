@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface CaseRecordRepository extends CrudRepository<CaseRecord, Long> {
     List<CaseRecord> findByCaseId(Long caseId);
+    Long countByCaseIdAndRecordStatusId(Long caseId, Long recordStatusId);
 }
