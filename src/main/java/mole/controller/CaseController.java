@@ -3,6 +3,7 @@ package mole.controller;
 import mole.model.dao.Case;
 import mole.model.repositories.CaseRepository;
 import mole.model.resource.CaseResource;
+import mole.model.resourceAssembler.CaseResourceAssembler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.hateoas.Link;
@@ -21,6 +22,8 @@ import java.util.List;
 public class CaseController {
     @Autowired
     private CaseRepository caseRepository;
+    @Autowired
+    private CaseResourceAssembler caseResourceAssembler;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<CaseResource> getAll() {
@@ -30,7 +33,8 @@ public class CaseController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public CaseResource getCaseById(@PathVariable("id") Long id) {
-        return new CaseResource(this.caseRepository.findOne(id));
+        //return new CaseResource(this.caseRepository.findOne(id));
+        return caseResourceAssembler.toResource(this.caseRepository.findOne(id));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/Search/{field}/{value}")
