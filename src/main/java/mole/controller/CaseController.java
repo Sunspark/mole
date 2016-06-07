@@ -57,11 +57,12 @@ public class CaseController {
     public ResponseEntity<?> add(@RequestBody Case input) {
         //this.validateUser(userId);
 
-        caseRepository.save(input);
+        Case newCase = caseRepository.save(input);
 
         HttpHeaders httpHeaders = new HttpHeaders();
-        Link newUserLink = new CaseResource(input).getLink("self");
-        httpHeaders.setLocation(URI.create(newUserLink.getHref()));
+        CaseResource newCaseResource = caseResourceAssembler.toResource(newCase);
+        Link newCaseLink = newCaseResource.getLink("self");
+        httpHeaders.setLocation(URI.create(newCaseLink.getHref()));
 
         return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
     }
@@ -82,7 +83,7 @@ public class CaseController {
         caseRepository.save(target);
 
         HttpHeaders httpHeaders = new HttpHeaders();
-        Link newUserLink = new CaseResource(target).getLink("self");
+        Link newUserLink = caseResourceAssembler.toResource(target).getLink("self");
         httpHeaders.setLocation(URI.create(newUserLink.getHref()));
 
         return new ResponseEntity<>(null, httpHeaders, HttpStatus.OK);
