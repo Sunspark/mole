@@ -47,11 +47,9 @@ public class CaseResourceAssembler extends ResourceAssemblerSupport<Case, CaseRe
 
         // include report query handler
         // get max report on this case by date
-        Report mostRecentReport = reportRepository.findOneByOrderByModifiedDesc();
+        Report mostRecentReport = reportRepository.findTop1ByOrderByModifiedDesc();
         // assign values
-        Long x = 3L;
-
-
+        caseResource.setMostRecentReportUserId(mostRecentReport.getUserId());
 
         return caseResource;
     }

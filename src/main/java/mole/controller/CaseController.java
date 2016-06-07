@@ -92,7 +92,7 @@ public class CaseController {
         List<CaseResource> returnList = new ArrayList<CaseResource>();
 
         for (Case c : incomingList) {
-            returnList.add(new CaseResource(c));
+            returnList.add(caseResourceAssembler.toResource(c));
         }
 
         return returnList;
